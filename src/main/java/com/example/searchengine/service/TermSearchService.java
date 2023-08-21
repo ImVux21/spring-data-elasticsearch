@@ -1,32 +1,25 @@
 package com.example.searchengine.service;
 
 import co.elastic.clients.elasticsearch._types.query_dsl.*;
-import co.elastic.clients.elasticsearch.core.termvectors.Filter;
 import co.elastic.clients.json.JsonData;
 import com.example.searchengine.entity.Product;
 import com.example.searchengine.repository.ProductRepository;
 import com.example.searchengine.response.SearchHitsResponse;
-import jakarta.json.Json;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.elasticsearch.annotations.DateFormat;
-import org.springframework.data.elasticsearch.annotations.Highlight;
-import org.springframework.data.elasticsearch.annotations.HighlightField;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import java.io.Serializable;
 import java.util.List;
 
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class ProductService {
+public class TermSearchService {
     private final ProductRepository productRepository;
 
     private final ElasticsearchOperations elasticsearchOperations;
